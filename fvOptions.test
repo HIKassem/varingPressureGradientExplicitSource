@@ -1,0 +1,42 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+momentumSource
+{
+    type            varyingPressureGradientExplicitSource;
+    active          on;            //on/off switch
+    selectionMode   all;       //cellSet // points //cellZone
+
+    varyingPressureGradientExplicitSourceCoeffs
+    {
+
+            mode            uniform;    // uniform or lookup
+
+            // uniform option
+            velocity     constant ( 0.1335 0 0 ); // fixed velocity with time [m/s]
+            // tabel, CompatibilityConstant, csvFile, tableFile
+
+            // lookup option
+            // UName        U;          // optional velocity field name
+
+        fieldNames  (U);
+        Ubar        ( 0.1335 0 0 ); // for direction only
+    }
+}
+
+
+// ************************************************************************* //
