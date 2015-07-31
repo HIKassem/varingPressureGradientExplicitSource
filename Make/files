@@ -1,0 +1,5 @@
+varyingPressureGradientExplicitSource.C
+varyingPressureGradientExplicitSourceIO.C
+
+
+LIB = $(FOAM_USER_LIBBIN)/libmyfvOptions
